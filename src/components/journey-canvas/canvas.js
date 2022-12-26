@@ -7,11 +7,17 @@ import courseData from "../../data.json";
 import user from "../../data2.json";
 import dark_bubble from "../../assets/dark_bubble.png";
 import light_bubble from "../../assets/light_bubble.png";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
-function JourneyCanvas(props) {
+function JourneyCanvas() {
   const [courseHeading, setCourseHeading] = useState();
   const [isLoading, setLoading] = useState(true);
   const [currentLevel, setCurrentLevel] = useState(0);
+
+  let navigate = useNavigate();
+
+  let { setExpandedIndex } = useOutletContext();
+
   let itemPosition = {
     1: [30, 425],
     2: [200, 495],
@@ -32,9 +38,10 @@ function JourneyCanvas(props) {
     );
   }, []);
 
-  let onClickHandle = (val) => {
-    props.topic(val);
-    props.journey(false);
+  let onClickHandle = (val, index) => {
+    console.log("sending", index);
+    setExpandedIndex(index);
+    navigate(`/learn/${val}/0`);
   };
 
   return (
@@ -75,7 +82,7 @@ function JourneyCanvas(props) {
                   height={dimension[1]}
                   interactive={interactive}
                   pointerdown={() => {
-                    onClickHandle(courseHeading[index]);
+                    onClickHandle(courseHeading[index], index);
                   }}
                 />
 

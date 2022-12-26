@@ -1,26 +1,46 @@
 {
     "lesson": "C Programming",
-    "content":
-{
-    "Introduction": {
-        "What is C?": [],
-        "Difference between C and C++": []
-    },
-    "Operators": {
-        "Operators": [],
-        "Operators and Initialization": [
-            "a) Arithmeric Operators",
-            "b) C-Tokens",
-            "c) Declaration and Initialization",
-            "d) Relational and Logical Operators"
-        ]
-    },
-    "Flow Control": {},
-    "Data Types": {},
-    "Functions": {},
-    "Pointers": {},
-    "Arrays": {},
-    "Strings": {},
-    "Structures": {}
-}
+    "content": {
+        "Introduction": {
+            "What is C?": [],
+            "Difference between C and C++": [],
+            "Basics in C": [],
+            "Memory and Datatypes": []
+        },
+        "Operators": {
+            "Operators": [],
+            "Operators and Initialization": [
+                "a) Arithmeric Operators",
+                "b) C-Tokens",
+                "c) Declaration and Initialization",
+                "d) Relational and Logical Operators"
+            ],
+            "Examples": []
+        },
+        "Flow Control": {
+            "What is Flow Control?": [],
+            "Types of Flow Control": [
+                "a) if",
+                "b) for",
+                "c) while",
+                "d) switch"
+            ],
+            "Examples": []
+        },
+        "Data Types": {
+            "What is DataTypes?": [],
+            "Types of DataTypes": [
+                "a) int",
+                "b) float",
+                "c) bool",
+                "d) long"
+            ],
+            "Examples": []
+        },
+        "Functions": {},
+        "Pointers": {},
+        "Arrays": {},
+        "Strings": {},
+        "Structures": {}
+    }
 }

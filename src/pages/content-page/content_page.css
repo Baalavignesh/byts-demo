@@ -1,3 +1,9 @@
+.content-main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .content-progress-bar {
     display: flex;
     justify-content: space-between;
@@ -26,4 +32,23 @@
 .content-text {
     font-size: 1rem;
     padding: 0rem .5rem;
+}
+
+.content-box {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    background-color: gray;
+    flex-grow: 1;
+    border-radius: 10px;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-next {
+    display: flex;
+    justify-content: space-around;
+    height: 10%;
+    align-items: center;
 }
