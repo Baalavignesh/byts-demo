@@ -1,0 +1,29 @@
+.content-progress-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 1100px;
+    align-items: center;
+}
+
+
+.content-progress {
+    display: flex;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+.content-style {
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    opacity: 80%;
+}
+
+.content-text {
+    font-size: 1rem;
+    padding: 0rem .5rem;
+}

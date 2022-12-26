@@ -1,0 +1,57 @@
+.homepage-main {
+    height: 100%;
+}
+
+.homepage-content {
+    display: flex;
+    color: rgb(39, 39, 39);
+    background-color: #e6e7e9;
+    height: 100%;
+}
+
+.journey-menu {
+    width: 20%;
+    /* background-color: #aaabafd8; */
+    padding: 1rem 1rem 0rem 1rem;
+    color: #d4d4d4;
+    min-height: 660px;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    margin-right: 6px;
+    padding-bottom: 1rem;
+}
+
+.accordian-title {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px .5px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+}
+
+
+.journey-subject {
+    padding: 1rem 0rem;
+    background-color: #E45D3D;
+    text-align: center;
+    border-radius: 4px;
+    color: white;
+    font-size: 20px;
+    width: 100%;
+}
+
+.journey-canvas {
+    width: 70%;
+
+}
+
+.journey-heading {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.journey-topic {
+    cursor: pointer;
+    padding: 2px;
+    font-weight: 400;
+}
+
+.journey-subtopic {
+    cursor: pointer;
+    padding-left: 1rem;
+}

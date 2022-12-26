@@ -1,0 +1,29 @@
+.navbar-main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;   
+    height: 100px; 
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.548);
+}
+
+.navbar-logo {
+    position: absolute;
+    left: 4rem;
+    top: 1rem;
+}
+
+.navbar-menu {
+    display: flex;
+    justify-content: space-around;
+    width: 25%;
+    font-weight: 600;
+}
+
+.navbar-profile {
+    display: flex;
+}
+
+.navbar-profile-text {
+    padding-left: 10px;
+    font-weight: 600;
+}
