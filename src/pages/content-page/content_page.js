@@ -4,14 +4,22 @@ import "./content_page.css";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useNavigate, useParams } from "react-router-dom";
 import data from "../../data.json";
+import { useDispatch, useSelector } from "react-redux";
+import { updateLevel } from "../../features/userSlice";
+import { CompareSharp } from "@mui/icons-material";
 
 function ContentPage() {
   let [loading, setLoading] = useState(true);
   let [myProgress, setProgress] = useState([]);
   let topic = useParams();
 
+  let dispatch = useDispatch();
+  let user_current_topic = useSelector((state) => state.userdata.level);
+
   let navigate = useNavigate();
   useEffect(() => {
+    console.log("content-page");
+    console.log(topic);
     myProgress.pop();
     myProgress.pop();
     myProgress.pop();
@@ -20,10 +28,27 @@ function ContentPage() {
     myProgress.push("C");
     myProgress.push([topic["lesson"]]);
     myProgress.push([topic["id"]]);
+    // id is subtopics in the lesson
     setProgress(myProgress);
+    let subtopicKeys = Object.keys(data.content[topic["lesson"]]).length;
 
-    topic["id"] > Object.keys(data.content[topic["lesson"]]).length - 1 &&
+    let all_topic = Object.keys(data.content);
+    let selected_topic_index = all_topic.lastIndexOf(topic["lesson"]);
+    let user_current_topic_index = all_topic.lastIndexOf(user_current_topic);
+
+    console.log("current topic : ", user_current_topic);
+    console.log("current topic index: ", user_current_topic_index);
+    console.log("selected topic  : ", topic["lesson"]);
+    console.log("selected topic index : ", selected_topic_index);
+    // If No more sub topic go back to home screen
+    // If No more sub topic and finished the course then go to next topic
+
+    if (topic["id"] > subtopicKeys - 1) {
+      if (selected_topic_index === user_current_topic_index) {
+        dispatch(updateLevel(all_topic[selected_topic_index + 1]));
+      }
       navigate("/");
+    }
     setLoading(false);
   }, [topic]);
 

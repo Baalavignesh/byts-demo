@@ -4,15 +4,17 @@ import anchor from "../../assets/anchor.png";
 import map from "../../assets/mapp.png";
 import boat from "../../assets/boat.png";
 import courseData from "../../data.json";
-import user from "../../data2.json";
 import dark_bubble from "../../assets/dark_bubble.png";
 import light_bubble from "../../assets/light_bubble.png";
 import { useNavigate, useOutletContext } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function JourneyCanvas() {
   const [courseHeading, setCourseHeading] = useState();
   const [isLoading, setLoading] = useState(true);
   const [currentLevel, setCurrentLevel] = useState(0);
+
+  let user_level = useSelector((state) => state.userdata.level);
 
   let navigate = useNavigate();
 
@@ -34,7 +36,7 @@ function JourneyCanvas() {
     setCourseHeading(Object.keys(courseData["content"]));
     setLoading(false);
     Object.keys(courseData["content"]).map(
-      (value, index) => value === user.level && setCurrentLevel(index)
+      (value, index) => value === user_level && setCurrentLevel(index)
     );
   }, []);
 
@@ -61,9 +63,9 @@ function JourneyCanvas() {
             let y = itemPosition[key][1];
 
             let dimension =
-              user.level === courseHeading[index] ? [100, 100] : [80, 80];
+              user_level === courseHeading[index] ? [100, 100] : [80, 80];
 
-            let item = user.level === courseHeading[index] ? boat : anchor;
+            let item = user_level === courseHeading[index] ? boat : anchor;
 
             let bubble = index <= currentLevel ? dark_bubble : light_bubble;
             let textColor = index <= currentLevel ? "white" : "black";
