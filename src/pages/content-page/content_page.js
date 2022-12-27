@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import data from "../../data.json";
 import { useDispatch, useSelector } from "react-redux";
 import { updateLevel } from "../../features/userSlice";
-import { CompareSharp } from "@mui/icons-material";
+import "./content_page.css";
 
 function ContentPage() {
   let [loading, setLoading] = useState(true);
@@ -62,69 +62,59 @@ function ContentPage() {
     navigate(`/learn/${topic["lesson"]}/${topic["id"] - 1}`);
   };
 
-  return (
-    <div>
-      {loading ? (
-        <div>Loading</div>
-      ) : (
-        <div className="content-main">
-          <div className="content-progress-bar">
-            <div className="content-progress">
-              {myProgress.map((value, index) => {
-                return (
-                  <div className="content-style" key={index}>
-                    {index < myProgress.length - 1 ? (
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
-                        <p className="content-text"> {value}</p>
-                        <ArrowForwardIosIcon fontSize="small" />
-                      </div>
-                    ) : (
-                      <div>
-                        {Object.keys(data.content[topic["lesson"]]).at(
-                          topic["id"]
-                        )}
-                      </div>
-                    )}
+  return loading ? (
+    <div>Loading</div>
+  ) : (
+    <div className="content-main">
+      <div className="content-progress-bar">
+        <div className="content-progress">
+          {myProgress.map((value, index) => {
+            return (
+              <div className="content-style" key={index}>
+                {index < myProgress.length - 1 ? (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <p className="content-text"> {value}</p>
+                    <ArrowForwardIosIcon fontSize="small" />
                   </div>
-                );
-              })}
-            </div>
-            <div>
-              <Button
-                color="success"
-                variant="contained"
-                onClick={() => {
-                  navigate("/journey");
-                }}
-                style={{ width: "150px", padding: ".8rem" }}
-              >
-                View Journey
-              </Button>
-            </div>
-          </div>
-          <div className="content-box">
-            <div>Video Box</div>
-          </div>
-          <div className="content-next">
-            <Button color="primary" variant="text" onClick={() => backHandle()}>
-              Back
-            </Button>
-            <Button
-              color="success"
-              variant="outlined"
-              onClick={() => nextHandle()}
-            >
-              Next Video
-            </Button>
-          </div>
+                ) : (
+                  <div>
+                    {Object.keys(data.content[topic["lesson"]]).at(topic["id"])}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
-      )}
+        <div>
+          <Button
+            color="success"
+            variant="contained"
+            onClick={() => {
+              navigate("/journey");
+            }}
+            style={{ width: "150px", padding: ".8rem" }}
+          >
+            View Journey
+          </Button>
+        </div>
+      </div>
+      <div className="content-box">
+        <div>Video Box</div>
+      </div>
+      <div className="content-next">
+        <Button color="primary" variant="text" onClick={() => backHandle()}>
+          Back
+        </Button>
+        <Button color="success" variant="outlined" onClick={() => nextHandle()}>
+          Next Video
+        </Button>
+      </div>
     </div>
   );
 }

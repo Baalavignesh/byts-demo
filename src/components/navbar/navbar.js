@@ -5,7 +5,11 @@ import "./navbar.css";
 function Navbar() {
   return (
     <div className="navbar-main">
-      <img src={require("../../assets/logo.jpg")} alt="byts-logo" className="navbar-logo"></img>
+      <img
+        src={require("../../assets/logo.jpg")}
+        alt="byts-logo"
+        className="navbar-logo"
+      ></img>
       <div className="navbar-menu">
         <p className="navbar-topic">DETECTING LOOP IN LINKED LIST</p>
         <p>|</p>

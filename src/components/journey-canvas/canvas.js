@@ -8,6 +8,7 @@ import dark_bubble from "../../assets/dark_bubble.png";
 import light_bubble from "../../assets/light_bubble.png";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { useSelector } from "react-redux";
+import './canvas.css'
 
 function JourneyCanvas() {
   const [courseHeading, setCourseHeading] = useState();
@@ -47,7 +48,7 @@ function JourneyCanvas() {
   };
 
   return (
-    <div>
+    <div className="canvas-style">
       {isLoading ? (
         <div> loading </div>
       ) : (
