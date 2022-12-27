@@ -56,10 +56,22 @@
 @media (max-width: 576px) {
     .content-progress-bar {
         flex-direction: column;
-    }   
+    }
 
     .content-box {
         height: 40vh;
+        margin: 1rem;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 1180px) {
+    .content-progress-bar {
+        flex-direction: column;
+    }
+
+    .content-box {
+        height: 40vh;
+        width: 70vw;
         margin: 1rem;
     }
 }

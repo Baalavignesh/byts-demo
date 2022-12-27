@@ -62,18 +62,27 @@
     align-items: center;
     flex-grow: 1;
     margin: 1rem 2rem;
-
 }
 
-
+/* Mobile Css */
 @media (max-width: 576px) {
     .journey-menu {
-        width: 100%;
+        width: 80%;
         box-shadow: none;
+    }
+
+    .homepage-content {
+        flex-direction: column;
+        flex-direction: column-reverse;
+        /* height: 100%; */
+        
+        align-items: center;
     }
 }
 
-@media (max-width: 1150px) {
+
+/* IPad Landscape and Portait */
+@media (min-width: 576px) and (max-width: 1180px) {
     .homepage-content {
         display: flex;
         flex-direction: column-reverse;
@@ -82,7 +91,7 @@
 
     .journey-menu {
         width: 80%;
-
+        box-shadow: none;
     }
 
     .mobile-progress {

@@ -30,7 +30,7 @@
 }
 
 
-@media (max-width: 800px) {
+@media (max-width: 480px) {
     .navbar-logo {
         margin-left: 2rem;
         margin-right: auto;
@@ -52,12 +52,13 @@
     }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 768px) and (max-width: 1024px) {
 
-.navbar-main {
-    justify-content: center;
-    align-items: center;
-}
+    .navbar-main {
+        justify-content: center;
+        align-items: center;
+    }
+
     .navbar-profile {
         display: flex;
         margin-right: 2rem;
