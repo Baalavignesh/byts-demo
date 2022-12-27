@@ -67,15 +67,13 @@
 
 
 @media (max-width: 576px) {
-
-
     .journey-menu {
         width: 100%;
         box-shadow: none;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1150px) {
     .homepage-content {
         display: flex;
         flex-direction: column-reverse;
@@ -97,4 +95,7 @@
         padding: 1rem;
     }
 
+    .homepage-main {
+        width: 1180px;
+    }
 }
