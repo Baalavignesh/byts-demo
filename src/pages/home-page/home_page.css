@@ -1,5 +1,7 @@
 .homepage-main {
     height: 100%;
+    width: 100vw;
+    overflow: hidden;
 }
 
 .homepage-content {
@@ -9,13 +11,15 @@
     /* height: 100%; */
 }
 
+
+
 .mobile-progress {
     display: none;
 }
 
 .journey-menu {
-    width: 20%;
-    /* background-color: #aaabafd8; */
+    /* width: 100%; */
+    background-color: #e6e7e9;
     padding: 1rem 1rem 0rem 1rem;
     color: #d4d4d4;
     min-height: 660px;
@@ -58,43 +62,12 @@
 
 .canvas-and-content {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-grow: 1;
-    margin: 1rem 2rem;
+    background-color: #F8CC80;
 }
 
 /* Mobile Css */
-@media (max-width: 576px) {
-    .journey-menu {
-        width: 80%;
-        box-shadow: none;
-    }
-
-    .homepage-content {
-        flex-direction: column;
-        flex-direction: column-reverse;
-        /* height: 100%; */
-        
-        align-items: center;
-    }
-}
-
+@media (max-width: 576px) {}
 
 /* IPad Landscape and Portait */
-@media (min-width: 576px) and (max-width: 1180px) {
-    .homepage-content {
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-    }
-
-    .journey-menu {
-        width: 80%;
-        box-shadow: none;
-    }
-
-    .homepage-main {
-        width: 1180px;
-    }
-}
+@media (min-width: 576px) and (max-width: 1180px) {}

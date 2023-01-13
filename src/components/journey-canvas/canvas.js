@@ -8,7 +8,7 @@ import dark_bubble from "../../assets/dark_bubble.png";
 import light_bubble from "../../assets/light_bubble.png";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { useSelector } from "react-redux";
-import './canvas.css'
+import "./canvas.css";
 
 function JourneyCanvas() {
   const [courseHeading, setCourseHeading] = useState();
@@ -21,24 +21,48 @@ function JourneyCanvas() {
 
   let { setExpandedIndex } = useOutletContext();
 
+  let [canvasWidth, setCanvasWidth] = useState(window.innerWidth);
+  let [canvasHeight, setCanvasHeight] = useState(window.innerHeight);
+
   let itemPosition = {
-    1: [30, 425],
-    2: [200, 495],
-    3: [210, 290],
-    4: [370, 430],
-    5: [430, 210],
-    6: [580, 370],
-    7: [680, 140],
-    8: [790, 340],
-    9: [910, 200],
+    1: [canvasWidth * 0.025, canvasHeight * 0.78],
+    2: [canvasWidth * 0.16, canvasHeight * 0.76],
+    3: [canvasWidth * 0.16, canvasHeight * 0.46],
+    4: [canvasWidth * 0.3, canvasHeight * 0.68],
+    5: [canvasWidth * 0.35, canvasHeight * 0.3],
+    6: [canvasWidth * 0.47, canvasHeight * 0.62],
+    7: [canvasWidth * 0.55, canvasHeight * 0.2],
+    8: [canvasWidth * 0.66, canvasHeight * 0.55],
+    9: [canvasWidth * 0.75, canvasHeight * 0.3],
+  };
+
+  const handleResize = () => {
+    // Desktop Width
+    if (window.innerWidth > 1180) {
+      setCanvasHeight(window.innerHeight * 0.8);
+      setCanvasWidth(window.innerWidth * 0.8);
+    }
+    // Ipad and other screen
+    else if (window.innerWidth > 576 && window.innerWidth < 1180) {
+      setCanvasHeight(window.innerHeight * 0.6);
+      setCanvasWidth(window.innerWidth * 0.9);
+    } else {
+      setCanvasHeight(window.innerHeight * 0.3);
+      setCanvasWidth(window.innerWidth);
+    }
   };
 
   useEffect(() => {
+    console.log(Math.floor(canvasWidth * 0.2));
     setCourseHeading(Object.keys(courseData["content"]));
     setLoading(false);
     Object.keys(courseData["content"]).map(
       (value, index) => value === user_level && setCurrentLevel(index)
     );
+
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
   }, []);
 
   let onClickHandle = (val, index) => {
@@ -53,18 +77,26 @@ function JourneyCanvas() {
         <div> loading </div>
       ) : (
         <Stage
-          width={1180}
-          height={660}
+          width={canvasWidth}
+          height={canvasHeight}
           options={{ backgroundColor: 0xe6e7e9 }}
         >
-          <Sprite image={map} x={0} y={0} width={1200} height={650} />
+          <Sprite
+            image={map}
+            x={0}
+            y={0}
+            width={canvasWidth}
+            height={canvasHeight}
+          />
 
           {Object.keys(itemPosition).map((key, index) => {
             let x = itemPosition[key][0];
             let y = itemPosition[key][1];
 
             let dimension =
-              user_level === courseHeading[index] ? [100, 100] : [80, 80];
+              user_level === courseHeading[index]
+                ? [canvasWidth * 0.08, canvasWidth * 0.08]
+                : [canvasWidth * 0.08, canvasWidth * 0.08];
 
             let item = user_level === courseHeading[index] ? boat : anchor;
 
@@ -94,10 +126,10 @@ function JourneyCanvas() {
                   <Sprite
                     image={bubble}
                     key={index}
-                    x={x}
-                    y={y - 60}
-                    width={100}
-                    height={60}
+                    x={x - canvasWidth * 0.005}
+                    y={y - canvasWidth * 0.055}
+                    width={canvasWidth * 0.09}
+                    height={canvasWidth * 0.045}
                     cursor={"pointer"}
                     interactive={interactive}
                     pointerdown={() => {
@@ -106,11 +138,11 @@ function JourneyCanvas() {
                   />
                   <Text
                     text={courseHeading[index]}
-                    x={x + 6}
-                    y={y - 48}
+                    x={x + canvasWidth * 0.0}
+                    y={y - canvasWidth * 0.048}
                     style={{
                       fontFamily: "Kalam",
-                      fontSize: 16,
+                      fontSize: canvasWidth * 0.013,
                       fontWeight: 400,
                       wordWrap: true,
                       fill: textColor,
@@ -124,7 +156,7 @@ function JourneyCanvas() {
 
           <Text
             text="C Programming Journey"
-            x={50}
+            x={canvasWidth * 0.01}
             y={50}
             style={{
               fontFamily: "Kalam",

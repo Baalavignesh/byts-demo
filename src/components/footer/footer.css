@@ -1,13 +1,63 @@
 .footer-main {
-    height: 60px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    background-color: #606062;
+    background-color: #343A40;
     color: white;
     font-size: 12px;
+    /* position: absolute; */
+    width: 100%;
+    /* bottom: 0;
+    top: auto; */
+    padding: 2rem 0rem;
 }
 
-.contact-us {
-    font-size: 12px;
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
 }
+
+.about-us {
+    width: 40%;
+    word-wrap: break-word;
+    position: relative;
+    top: 0;
+}
+
+.quick-links {
+    padding: 1rem;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.made-by {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.follow-us {
+    align-items: center;
+}
+
+.footer-icons {
+    padding: 1rem;
+}
+
+
+/* Mobile Css */
+@media (max-width: 576px) {
+    .footer-content {
+        flex-wrap: wrap;
+        text-align: center;
+        padding: 0rem;
+    }
+}
+
+/* IPad Landscape and Portait */
+@media (min-width: 576px) and (max-width: 1180px) {}

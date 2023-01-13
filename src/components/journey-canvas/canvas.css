@@ -1,9 +1,3 @@
 .canvas-style {
     flex-grow: 1;
 }
-
-@media (max-width: 576px) {
-    .canvas-style {
-        display: none;
-    }
-}

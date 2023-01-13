@@ -18,8 +18,6 @@ function ContentPage() {
 
   let navigate = useNavigate();
   useEffect(() => {
-    console.log("content-page");
-    console.log(topic);
     myProgress.pop();
     myProgress.pop();
     myProgress.pop();
@@ -36,10 +34,6 @@ function ContentPage() {
     let selected_topic_index = all_topic.lastIndexOf(topic["lesson"]);
     let user_current_topic_index = all_topic.lastIndexOf(user_current_topic);
 
-    console.log("current topic : ", user_current_topic);
-    console.log("current topic index: ", user_current_topic_index);
-    console.log("selected topic  : ", topic["lesson"]);
-    console.log("selected topic index : ", selected_topic_index);
     // If No more sub topic go back to home screen
     // If No more sub topic and finished the course then go to next topic
 
