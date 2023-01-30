@@ -51,3 +51,15 @@
     cursor: default;
     color: rgb(42, 42, 42);
 }
+
+
+/* Mobile Css */
+@media (max-width: 576px) {
+    .svg-title-text {
+        font-size: 2rem;
+        color: white;
+        font-weight: 500;
+        font-family: Kalam;
+    }
+    
+}
